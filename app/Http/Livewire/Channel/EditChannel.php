@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Channel;
 
 use App\Models\Channel;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Intervention\Image\Image;
@@ -10,6 +11,7 @@ use Intervention\Image\Image;
 class EditChannel extends Component
 {
     use WithFileUploads;
+    use AuthorizesRequests;
 
     public $channel;
     public $image;
