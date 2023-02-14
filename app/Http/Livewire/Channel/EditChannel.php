@@ -6,7 +6,7 @@ use App\Models\Channel;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Intervention\Image\Image;
+use Image;
 
 class EditChannel extends Component
 {
