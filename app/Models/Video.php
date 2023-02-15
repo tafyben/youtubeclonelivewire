@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+
+    public function getRouteKeyName()
+    {
+
+        return 'uid';
+    }
+
+    public function channel()
+    {
+
+        return $this->belongsTo(Channel::class);
+    }
 }
