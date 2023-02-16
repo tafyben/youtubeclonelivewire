@@ -44,7 +44,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -59,6 +59,12 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a href="{{route('video.create' , ['channel' => Auth::user()->channel ])}}"
+                                   class="nav-link">
+                                    <span class="material-icons">video_call</span>
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
