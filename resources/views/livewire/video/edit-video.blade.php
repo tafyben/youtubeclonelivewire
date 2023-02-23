@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <form wire:submit.prevent="update">
                     <div class="form-group">
-                        <label for="title">Tile</label>
+                        <label for="title">Title</label>
                         <input type="text" class="form-control" wire:model="video.title">
                     </div>
 
