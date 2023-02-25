@@ -13,10 +13,11 @@
                         <div class="progress my-4" x-show="isUploading">
                             <div class="progress-bar" role="progressbar" :style="`width: ${progress}%`"></div>
                         </div>
+                        {{-- uploading start --}}
                         <form x-show="!isUploading">
                             <input type="file" wire:model='videoFile'>
                         </form>
-
+                        {{-- uploading end --}}
                         @error('videoFile')
                         <div class="alert alert-danger">
                             {{ $message }}
