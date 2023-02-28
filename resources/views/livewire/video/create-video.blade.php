@@ -20,6 +20,7 @@
                         {{-- uploading end --}}
                         @error('videoFile')
                         <div class="alert alert-danger">
+                            {{-- message area--}}
                             {{ $message }}
                         </div>
                         @enderror

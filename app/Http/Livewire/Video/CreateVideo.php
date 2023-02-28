@@ -22,15 +22,14 @@ class CreateVideo extends Component
     }
     public function render()
     {
-        return view('livewire.video.create-video')
-            ->extends('layouts.app');
+        return view('livewire.video.create-video')->extends('layouts.app');
     }
 
     public function fileCompleted()
     {
         // validation
         $this->validate();
-        //save the file
+        //save the file to this path
         $path = $this->videoFile->store('videos-temp');
 
         //create video record in sb
@@ -38,6 +37,7 @@ class CreateVideo extends Component
             'title' => 'untitled',
             'description' => 'none',
             'uid' => uniqid(true),
+            /*start off as hidden video*/
             'visibility' => 'private',
             'path' => explode('/', $path)[1]
         ]);
