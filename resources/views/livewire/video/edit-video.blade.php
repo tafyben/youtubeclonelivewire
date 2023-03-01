@@ -28,6 +28,7 @@
 
                     <div class="form-group">
                         <label for="visibility">Visibility</label>
+                        {{-- visibility options --}}
                         <select wire:model="video.visibility" class="form-control">
                             <option value="private">private</option>
                             <option value="public">public</option>
@@ -37,14 +38,17 @@
 
                     @error('video.description')
                     <div class="alert alert-danger">
+                        {{-- alert message after add if not valie--}}
                         {{ $message }}
                     </div>
                     @enderror
                     <div class="form-group">
+                        {{-- update button --}}
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
 
                     @if(session()->has('message'))
+                        {{-- session message show --}}
                         <div class="alert alert-success">
                             {{ session('message')}}
                         </div>
