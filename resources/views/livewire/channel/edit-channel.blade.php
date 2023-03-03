@@ -39,8 +39,7 @@
         </div>
         @enderror
 
-        <div class="form-group">
-
+        <div class="form-group mt-2 mb-2">
             <input type="file" wire:model="image">
         </div>
 

@@ -36,6 +36,6 @@ class EditVideo extends Component
             'visibility' => $this->video->visibility
         ]);
 
-        session()->flash('message', 'video was update ');
+        session()->flash('message', 'Video was updated ');
     }
 }

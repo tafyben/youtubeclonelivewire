@@ -42,7 +42,7 @@
                         {{ $message }}
                     </div>
                     @enderror
-                    <div class="form-group">
+                    <div class="form-group mt-2 mb-2">
                         {{-- update button --}}
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
