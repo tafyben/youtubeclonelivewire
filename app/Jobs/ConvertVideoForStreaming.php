@@ -59,7 +59,7 @@ class ConvertVideoForStreaming implements ShouldQueue
 
         $this->video->update([
             'processed' => true,
-            'proccessed_file' => $this->video->uid . '.m3u8'
+            'processed_file' => $this->video->uid . '.m3u8'
         ]);
         //delete temp video
         $result = Storage::disk('videos-temp')->delete($this->video->path);
