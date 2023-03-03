@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Video;
 
+use App\Jobs\ConvertVideoForStreaming;
+use App\Jobs\CreateThumbnailFromVideo;
 use App\Models\Channel;
 use App\Models\Video;
 use Livewire\Component;
@@ -22,14 +24,15 @@ class CreateVideo extends Component
     }
     public function render()
     {
-        return view('livewire.video.create-video')->extends('layouts.app');
+        return view('livewire.video.create-video')
+            ->extends('layouts.app');
     }
 
     public function fileCompleted()
     {
         // validation
         $this->validate();
-        //save the file to this path
+        //save the file
         $path = $this->videoFile->store('videos-temp');
 
         //create video record in sb
@@ -37,10 +40,12 @@ class CreateVideo extends Component
             'title' => 'untitled',
             'description' => 'none',
             'uid' => uniqid(true),
-            /*start off as hidden video*/
             'visibility' => 'private',
             'path' => explode('/', $path)[1]
         ]);
+        //disptach jobs
+        CreateThumbnailFromVideo::dispatch($this->video);
+        ConvertVideoForStreaming::dispatch($this->video);
         //redirect to edit route
         return redirect()->route('video.edit', [
             'channel' => $this->channel,
