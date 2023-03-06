@@ -32,10 +32,10 @@ class CreateVideo extends Component
     {
         // validation
         $this->validate();
-        //save the file
+        //save the file in the videos temp folder
         $path = $this->videoFile->store('videos-temp');
 
-        //create video record in sb
+        //create video record
         $this->video = $this->channel->videos()->create([
             'title' => 'untitled',
             'description' => 'none',
@@ -46,7 +46,7 @@ class CreateVideo extends Component
         //disptach jobs
         CreateThumbnailFromVideo::dispatch($this->video);
         ConvertVideoForStreaming::dispatch($this->video);
-        //redirect to edit route
+        //redirect to edit route after creation
         return redirect()->route('video.edit', [
             'channel' => $this->channel,
             'video' => $this->video,

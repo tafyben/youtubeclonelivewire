@@ -33,6 +33,7 @@ class CreateThumbnailFromVideo implements ShouldQueue
      */
     public function handle()
     {
+        /*destination save location for the thumbail*/
         $destination = '/' . $this->video->uid . '/' . $this->video->uid . '.png';
         FFMpeg::fromDisk('videos-temp')
             ->open($this->video->path)
