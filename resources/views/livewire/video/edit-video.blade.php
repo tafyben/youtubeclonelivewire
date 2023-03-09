@@ -6,6 +6,7 @@
                     <div class="col-md-4">
                         <img src="{{ asset($this->video->thumbnail)}}" class="img-thumbnail" alt="">
                     </div>
+                    {{-- removed processing percentage for now --}}
                    {{-- <div class="col-md-8">
                         <p>processing ({{$this->video->processing_percentage}})</p>
                     </div>--}}
